@@ -8,41 +8,67 @@ y **protegido** (guardrails medidos como clasificadores y activados en el agente
 
 ## Cómo correrlo
 
+Todo se corre desde la raíz de este repositorio; no hace falta nada fuera de él.
+
 ```bash
 uv venv --python 3.14 .venv && source .venv/bin/activate
 uv pip install -r requirements.txt
-cp .env.example .env          # y las tres LANGFUSE_* del proyecto (Langfuse local en :3000)
-# VPN GlobalProtect: agente en el vLLM :12555 (zai-org/GLM-5.3-Flash), juez en el Ollama :11434 (gemma3:27b)
+cp .env.example .env
+```
 
-# Parte 0 — se corre en el laboratorio del profesor, SIN modificarlo (salidas en parte0/salidas/)
-cd ../taller-04-llmops-example/Lab-04-LLMOps && python guion.py ceros | guardrails | traza
+### Sin VPN ni Langfuse: reproducir las cifras del informe desde los archivos crudos
 
-# Golden set (2.a): las dos tareas nuevas
-python enunciados/generar_variantes_t4.py         # tarea-a-pii.pdf, tarea-c-oculta.pdf
+```bash
+# Parte 0 — el laboratorio del profesor tal como se repartió (herramientas_profesor/)
+python herramientas_profesor/llmops/guion.py ceros        # = parte0/salidas/0_ceros.txt
+python herramientas_profesor/llmops/guion.py guardrails   # = parte0/salidas/0_guardrails.txt
+python herramientas_profesor/llmops/guion.py traza        # = parte0/salidas/0_traza.txt
 
-# Parte 1 + 2.b — corrida base (v1) en su sesión de Langfuse
-python evaluar_solver.py --golden golden_set.json --solver solver:Solver --ruta . \
-    --corridas corridas/base --salida resultados/resultados_solver_base.csv --sesion gonzaga-t4-base
-python herramientas_profesor/llmops/exportar_trazas.py --sesion gonzaga-t4-base -o resultados/spans_base.jsonl
+# Parte 1 — resumen de los spans exportados de Langfuse
 python herramientas_profesor/llmops/resumir_trazas.py resultados/spans_base.jsonl --precio propietario_economico
-python buscar_pii_spans.py --sesion gonzaga-t4-base          # ningún dato pii ni clave en Langfuse
-python juez_solver.py --corridas corridas/base --resultados resultados/resultados_solver_base.csv \
-    --salida resultados/juez_solver_base.csv --etiquetas etiquetas.csv
+
+# Parte 2.b — calibración del juez contra las etiquetas, sin volver a correr nada
 python herramientas_profesor/llmops/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
 
-# Parte 2.c — la mejora (prompts v2), mismo golden set, evaluador y modelo
-SOLVER_PROMPT_VERSION=v2 python evaluar_solver.py --golden golden_set.json --solver solver:Solver --ruta . \
-    --corridas corridas/v2 --salida resultados/resultados_solver_v2.csv --sesion gonzaga-t4-v2
-#   (y lo mismo: exportar, juez, buscar_pii_spans)
-
-# Parte 3 — guardrails como clasificadores, ejemplo y propios sobre el mismo banco
-python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails:validate_input --salida guardrails:validate_output \
-    --casos ataques.json --csv resultados/guardrails_ejemplo.csv
+# Parte 3 — guardrails de ejemplo y propios sobre el mismo banco
+python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails:validate_input \
+    --salida guardrails:validate_output --casos ataques.json --csv resultados/guardrails_ejemplo.csv
 python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
     --salida guardrails_solver:validar_salida --casos ataques.json --csv resultados/guardrails.csv
 
-python tablas_t4.py                      # resultados/tablas_t4.md: todas las tablas, desde los CSV y spans
+# Tablas e informe — salen solo de resultados/ y corridas/
+python peores_casos_t4.py                # resultados/peores_casos_base.txt
+python tablas_t4.py                      # resultados/tablas_t4.md
 python informe/construir_informe.py      # informe/informe.pdf
+```
+
+### Con la H200 (VPN GlobalProtect) y un Langfuse propio: volver a correr el solver y el juez
+
+En `.env`, las tres `LANGFUSE_*` de tu proyecto (local en `:3000` o Langfuse Cloud). El agente es
+`zai-org/GLM-5.3-Flash` en el vLLM `:12555` y el juez `gemma3:27b` en el Ollama `:11434`. Las cifras
+cambiarán un poco: el modelo muestrea.
+
+```bash
+# Golden set (2.a): genera las dos tareas nuevas (dato personal, instrucción escondida)
+python enunciados/generar_variantes_t4.py
+
+# Corrida base (v1) y la mejora (v2), cada una en su sesión de Langfuse
+python evaluar_solver.py --golden golden_set.json --solver solver:Solver --ruta . \
+    --corridas corridas/base --salida resultados/resultados_solver_base.csv --sesion gonzaga-t4-base
+SOLVER_PROMPT_VERSION=v2 python evaluar_solver.py --golden golden_set.json --solver solver:Solver --ruta . \
+    --corridas corridas/v2 --salida resultados/resultados_solver_v2.csv --sesion gonzaga-t4-v2
+
+# Exportar los spans y revisar que no haya datos personales ni claves (igual para v2)
+python herramientas_profesor/llmops/exportar_trazas.py --sesion gonzaga-t4-base -o resultados/spans_base.jsonl
+python buscar_pii_spans.py --sesion gonzaga-t4-base
+
+# El juez (igual para corridas/v2; el control con --prefijo K-).
+# --version js1 es el juez del laboratorio; js2, el que lee las cifras y deja la comparación al código.
+python juez_solver.py --corridas corridas/base --resultados resultados/resultados_solver_base.csv \
+    --salida resultados/juez_solver_base.csv --etiquetas etiquetas.csv
+python juez_solver.py --corridas corridas/control --resultados resultados/resultados_solver_control.csv \
+    --salida resultados/juez_solver_control.csv --etiquetas etiquetas.csv --prefijo K-
+#   Con un Ollama local en lugar del de la H200: --juez-url http://localhost:11434/v1
 ```
 
 ## Qué cambió respecto del Taller 3
@@ -70,11 +96,11 @@ python informe/construir_informe.py      # informe/informe.pdf
 ├── etiquetas.csv              etiquetas humanas (id,etiqueta), escritas antes de mirar al juez
 ├── evaluar_solver.py, verdades.py, juez_solver.py, buscar_pii_spans.py, tablas_t4.py
 ├── herramientas_profesor/     copiadas de los laboratorios del profesor, sin modificar
-│   ├── llmops/                del Lab-04: exportar, resumir, calibrar, probar guardrails (+ guardrails.py de ejemplo)
-│   └── Lab-03-Agentes/        evaluar.py; lo importa llmops/evaluar_llmops.py
+│   ├── llmops/                del Lab-04: guion.py (Parte 0), exportar, resumir, calibrar, probar guardrails
+│   └── Lab-03-Agentes/        evaluar.py, agent.py y tools.py, que importan los archivos de llmops/
 ├── fuentes/modelos/           las filas de precio del anexo del enunciado, con su fecha
 ├── parte0/salidas/            las tres salidas de la Parte 0
-├── corridas/base, corridas/v2 cada tarea: traza.jsonl, traza_llm/, plan.json, trabajo/ y el entregable
+├── corridas/base, v2, control cada tarea: traza.jsonl, traza_llm/, plan.json, trabajo/ y el entregable
 ├── resultados/                CSV crudos, spans exportados, tablas_t4.md
 └── informe/                   informe.md → informe.pdf
 ```
