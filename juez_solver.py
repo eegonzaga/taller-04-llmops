@@ -3,7 +3,7 @@
 
     python juez_solver.py --corridas corridas/base --resultados resultados/resultados_solver_base.csv \
         --juez gemma3 --salida resultados/juez_solver_base.csv
-    python herramientas_profesor/llmops/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
+    python laboratorio/llmops/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
 
 Es el `juez_solver.py` del Lab-04 adaptado a este repositorio:
 
@@ -35,7 +35,7 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
-sys.path.insert(0, str(AQUI / "herramientas_profesor" / "llmops"))
+sys.path.insert(0, str(AQUI / "laboratorio" / "llmops"))
 
 import evaluar_solver as ES  # noqa: E402
 import evaluar_llmops as EV  # noqa: E402

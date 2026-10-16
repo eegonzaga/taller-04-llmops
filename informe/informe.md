@@ -57,7 +57,7 @@ Los spans se exportaron con `exportar_trazas.py`, y sus tokens coinciden con los
 
 <!-- incluir: resultados/tablas_t4.md#Parte 1 — Observabilidad, v1 (base) — por agente -->
 
-**¿Dónde se va el tiempo?** En el modelo: las llamadas al LLM son el 96 % del tiempo. El cuello de botella es el **programador**, con 846 s (54 % del total) en solo 10 llamadas, porque genera 110 652 tokens de salida, casi todo razonamiento antes de escribir el script. Herramientas, GraphRAG y guardrails juntos no llegan al 3 %. Con la fila de pago, las tres corridas costarían 0,15 USD, unas quince veces la referencia del profesor, porque el solver hace muchas más llamadas por caso.
+**¿Dónde se va el tiempo?** En el modelo: las llamadas al LLM son el 96 % del tiempo. El cuello de botella es el **programador**, con 846 s (54 % del total) en solo 10 llamadas, porque genera 110 652 tokens de salida, casi todo razonamiento antes de escribir el script. Herramientas, GraphRAG y guardrails juntos no llegan al 3 %. Con la fila de pago, las tres corridas costarían 0,15 USD, unas quince veces la referencia del enunciado, porque el solver hace muchas más llamadas por caso.
 
 ## Parte 2 — Evaluación
 

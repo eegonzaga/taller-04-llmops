@@ -19,5 +19,5 @@ matplotlib==3.11.2
 # (réplica :12559), embeddings bge-m3 y juez gemma3:27b en el Ollama :11434.
 # Taller 04 — observabilidad, juez y herramientas del Lab-04 (versiones del Lab-04, 2026-10-09)
 langfuse==4.17.0           # spans (Parte 1), prompts versionados (Parte 2.c)
-openai==3.22.1             # el cliente del juez (herramientas_profesor/llmops/evaluar_llmops.py)
+openai==3.22.1             # el cliente del juez (laboratorio/llmops/evaluar_llmops.py)
 python-dotenv==1.2.3

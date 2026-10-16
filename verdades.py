@@ -181,7 +181,7 @@ def real_r1() -> dict:
     base = normalizar(datos(100_000))                       # Parte 2
     # Un solo hilo: con varios, el orden de las sumas de KMeans cambia y el recall@10 salía
     # 0.916 o 0.926 (nprobe = 1) en corridas idénticas. Con uno, siempre da lo mismo, y
-    # coincide con las salidas guardadas del notebook del profesor.
+    # coincide con las salidas guardadas del notebook de referencia.
     from threadpoolctl import threadpool_limits
     with threadpool_limits(limits=1):
         km = KMeans(n_clusters=64, n_init=3, random_state=7).fit(base)

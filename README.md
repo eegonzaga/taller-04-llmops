@@ -19,21 +19,21 @@ cp .env.example .env
 ### Sin VPN ni Langfuse: reproducir las cifras del informe desde los archivos crudos
 
 ```bash
-# Parte 0 — el laboratorio del profesor tal como se repartió (herramientas_profesor/)
-python herramientas_profesor/llmops/guion.py ceros        # = parte0/salidas/0_ceros.txt
-python herramientas_profesor/llmops/guion.py guardrails   # = parte0/salidas/0_guardrails.txt
-python herramientas_profesor/llmops/guion.py traza        # = parte0/salidas/0_traza.txt
+# Parte 0 — los archivos del Lab-04 tal como se repartieron
+python laboratorio/llmops/guion.py ceros        # = parte0/salidas/0_ceros.txt
+python laboratorio/llmops/guion.py guardrails   # = parte0/salidas/0_guardrails.txt
+python laboratorio/llmops/guion.py traza        # = parte0/salidas/0_traza.txt
 
 # Parte 1 — resumen de los spans exportados de Langfuse
-python herramientas_profesor/llmops/resumir_trazas.py resultados/spans_base.jsonl --precio propietario_economico
+python laboratorio/llmops/resumir_trazas.py resultados/spans_base.jsonl --precio propietario_economico
 
 # Parte 2.b — calibración del juez contra las etiquetas, sin volver a correr nada
-python herramientas_profesor/llmops/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
+python laboratorio/llmops/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
 
 # Parte 3 — guardrails de ejemplo y propios sobre el mismo banco
-python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails:validate_input \
+python laboratorio/llmops/probar_guardrails.py --entrada guardrails:validate_input \
     --salida guardrails:validate_output --casos ataques.json --csv resultados/guardrails_ejemplo.csv
-python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
+python laboratorio/llmops/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
     --salida guardrails_solver:validar_salida --casos ataques.json --csv resultados/guardrails.csv
 
 # Tablas e informe — salen solo de resultados/ y corridas/
@@ -59,7 +59,7 @@ SOLVER_PROMPT_VERSION=v2 python evaluar_solver.py --golden golden_set.json --sol
     --corridas corridas/v2 --salida resultados/resultados_solver_v2.csv --sesion gonzaga-t4-v2
 
 # Exportar los spans y revisar que no haya datos personales ni claves (igual para v2)
-python herramientas_profesor/llmops/exportar_trazas.py --sesion gonzaga-t4-base -o resultados/spans_base.jsonl
+python laboratorio/llmops/exportar_trazas.py --sesion gonzaga-t4-base -o resultados/spans_base.jsonl
 python buscar_pii_spans.py --sesion gonzaga-t4-base
 
 # El juez (igual para corridas/v2; el control con --prefijo K-).
@@ -95,7 +95,7 @@ python juez_solver.py --corridas corridas/control --resultados resultados/result
 ├── ataques_fuera_del_banco.json  10 casos escritos después de ajustar las reglas
 ├── etiquetas.csv              etiquetas humanas (id,etiqueta), escritas antes de mirar al juez
 ├── evaluar_solver.py, verdades.py, juez_solver.py, buscar_pii_spans.py, tablas_t4.py
-├── herramientas_profesor/     copiadas de los laboratorios del profesor, sin modificar
+├── laboratorio/               archivos de los Lab-03 y Lab-04 del curso, sin modificar
 │   ├── llmops/                del Lab-04: guion.py (Parte 0), exportar, resumir, calibrar, probar guardrails
 │   └── Lab-03-Agentes/        evaluar.py, agent.py y tools.py, que importan los archivos de llmops/
 ├── fuentes/modelos/           las filas de precio del anexo del enunciado, con su fecha

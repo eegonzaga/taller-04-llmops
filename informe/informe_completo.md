@@ -148,7 +148,7 @@ Tiempo de su span `agent`; tokens de sus generations.
 | lector | 3 | 0.639 | 0 | 0 | 0 | 0 | 0 |
 | validar_plan | 3 | 0.007 | 0 | 0 | 0 | 0 | 0 |
 
-**¿Dónde se va el tiempo?** En el modelo: las llamadas al LLM son el 96 % del tiempo. El cuello de botella es el **programador**, con 846 s (54 % del total) en solo 10 llamadas, porque genera 110 652 tokens de salida, casi todo razonamiento antes de escribir el script. Herramientas, GraphRAG y guardrails juntos no llegan al 3 %. Con la fila de pago, las tres corridas costarían 0,15 USD, unas quince veces la referencia del profesor, porque el solver hace muchas más llamadas por caso.
+**¿Dónde se va el tiempo?** En el modelo: las llamadas al LLM son el 96 % del tiempo. El cuello de botella es el **programador**, con 846 s (54 % del total) en solo 10 llamadas, porque genera 110 652 tokens de salida, casi todo razonamiento antes de escribir el script. Herramientas, GraphRAG y guardrails juntos no llegan al 3 %. Con la fila de pago, las tres corridas costarían 0,15 USD, unas quince veces la referencia del enunciado, porque el solver hace muchas más llamadas por caso.
 
 ## Parte 2 — Evaluación
 
