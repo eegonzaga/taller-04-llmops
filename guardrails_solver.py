@@ -1,6 +1,6 @@
 """Guardrails del solver multiagente — Taller 04, Parte 3 (opción B).
 
-    python lab04/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
+    python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
         --salida guardrails_solver:validar_salida --casos ataques.json --csv resultados/guardrails.csv
 
 Tres guardrails (más el sandbox del Taller 3, que cuenta como el tercero de la opción B):

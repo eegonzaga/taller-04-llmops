@@ -18,7 +18,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent
 RES = RAIZ / "resultados"
-sys.path.insert(0, str(RAIZ / "lab04"))
+sys.path.insert(0, str(RAIZ / "herramientas_profesor" / "llmops"))
 sys.path.insert(0, str(RAIZ))
 
 from evaluar_llmops import _percentil, calibrar, leer_etiquetas, precio  # noqa: E402

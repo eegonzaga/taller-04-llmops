@@ -23,12 +23,12 @@ python enunciados/generar_variantes_t4.py         # tarea-a-pii.pdf, tarea-c-ocu
 # Parte 1 + 2.b — corrida base (v1) en su sesión de Langfuse
 python evaluar_solver.py --golden golden_set.json --solver solver:Solver --ruta . \
     --corridas corridas/base --salida resultados/resultados_solver_base.csv --sesion gonzaga-t4-base
-python lab04/exportar_trazas.py --sesion gonzaga-t4-base -o resultados/spans_base.jsonl
-python lab04/resumir_trazas.py resultados/spans_base.jsonl --precio propietario_economico
+python herramientas_profesor/llmops/exportar_trazas.py --sesion gonzaga-t4-base -o resultados/spans_base.jsonl
+python herramientas_profesor/llmops/resumir_trazas.py resultados/spans_base.jsonl --precio propietario_economico
 python buscar_pii_spans.py --sesion gonzaga-t4-base          # ningún dato pii ni clave en Langfuse
 python juez_solver.py --corridas corridas/base --resultados resultados/resultados_solver_base.csv \
     --salida resultados/juez_solver_base.csv --etiquetas etiquetas.csv
-python lab04/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
+python herramientas_profesor/llmops/evaluar_llmops.py --calibrar resultados/juez_solver_base.csv --etiquetas etiquetas.csv
 
 # Parte 2.c — la mejora (prompts v2), mismo golden set, evaluador y modelo
 SOLVER_PROMPT_VERSION=v2 python evaluar_solver.py --golden golden_set.json --solver solver:Solver --ruta . \
@@ -36,9 +36,9 @@ SOLVER_PROMPT_VERSION=v2 python evaluar_solver.py --golden golden_set.json --sol
 #   (y lo mismo: exportar, juez, buscar_pii_spans)
 
 # Parte 3 — guardrails como clasificadores, ejemplo y propios sobre el mismo banco
-python lab04/probar_guardrails.py --entrada guardrails:validate_input --salida guardrails:validate_output \
+python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails:validate_input --salida guardrails:validate_output \
     --casos ataques.json --csv resultados/guardrails_ejemplo.csv
-python lab04/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
+python herramientas_profesor/llmops/probar_guardrails.py --entrada guardrails_solver:validar_entrada \
     --salida guardrails_solver:validar_salida --casos ataques.json --csv resultados/guardrails.csv
 
 python tablas_t4.py                      # resultados/tablas_t4.md: todas las tablas, desde los CSV y spans
@@ -69,8 +69,9 @@ python informe/construir_informe.py      # informe/informe.pdf
 ├── ataques_fuera_del_banco.json  10 casos escritos después de ajustar las reglas
 ├── etiquetas.csv              etiquetas humanas (id,etiqueta), escritas antes de mirar al juez
 ├── evaluar_solver.py, verdades.py, juez_solver.py, buscar_pii_spans.py, tablas_t4.py
-├── lab04/                     herramientas del Lab-04, sin modificar (+ guardrails.py de ejemplo)
-├── Lab-03-Agentes/evaluar.py  lo importa lab04/evaluar_llmops.py (sin modificar)
+├── herramientas_profesor/     copiadas de los laboratorios del profesor, sin modificar
+│   ├── llmops/                del Lab-04: exportar, resumir, calibrar, probar guardrails (+ guardrails.py de ejemplo)
+│   └── Lab-03-Agentes/        evaluar.py; lo importa llmops/evaluar_llmops.py
 ├── fuentes/modelos/           las filas de precio del anexo del enunciado, con su fecha
 ├── parte0/salidas/            las tres salidas de la Parte 0
 ├── corridas/base, corridas/v2 cada tarea: traza.jsonl, traza_llm/, plan.json, trabajo/ y el entregable
