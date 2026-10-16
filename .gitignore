@@ -1,0 +1,21 @@
+# ── Credenciales: nunca al repositorio ──
+.env
+.env.*
+!.env.example
+
+# ── Entorno de Python ──
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# ── Cachés que crean las ejecuciones y no son evidencia ──
+**/.mpl/
+**/.jupyter/
+**/.ipynb_checkpoints/
+.cache/*
+!.cache/corpus-entidades-zai_org_glm_5_3_flash.json
+!.cache/embeddings-bge-m3_latest.json
+
+# ── Registros locales (Ollama, corridas del juez) ──
+logs/

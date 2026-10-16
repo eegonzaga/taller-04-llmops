@@ -1,0 +1,28 @@
+============================================================
+T1 - Parte 1: Carga de dígitos y partición única
+============================================================
+n_ejemplos  (total de imágenes)      : 1797
+n_atributos (píxeles por imagen 8x8) : 64
+n_clases    (dígitos 0-9)            : 10
+tam_train   (75%)                    : 1347
+tam_test    (25%)                    : 450
+proporción train/test               : 0.7496 / 0.2504
+------------------------------------------------------------
+Distribución por clase (verificación de estratificación):
+clase   total   train    test   %train    %test
+    0     178     133      45   74.72%   25.28%
+    1     182     136      46   74.73%   25.27%
+    2     177     133      44   75.14%   24.86%
+    3     183     137      46   74.86%   25.14%
+    4     181     136      45   75.14%   24.86%
+    5     182     136      46   74.73%   25.27%
+    6     181     136      45   75.14%   24.86%
+    7     179     134      45   74.86%   25.14%
+    8     174     131      43   75.29%   24.71%
+    9     180     135      45   75.00%   25.00%
+------------------------------------------------------------
+Archivos generados:
+  - resultados.json        (cifras + X_train/X_test/y_train/y_test)
+  - particion_digits.npz   (arreglos de la partición única)
+Nota: la partición es la única de toda la tarea; el conjunto de
+prueba no se usa para ajustar ni para elegir nada.

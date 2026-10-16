@@ -1,0 +1,7 @@
+{
+  "n_ejemplos": 1797,
+  "n_atributos": 64,
+  "n_clases": 10,
+  "tam_train": 1347,
+  "tam_test": 450
+}

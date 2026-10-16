@@ -1,0 +1,20 @@
+id,etiqueta,nota
+A06,aprueba,NB 0.8556 junto a GaussianNB en la tabla de la Parte 2
+A08,aprueba,0.3667 con m=20 en la tabla de la curva
+A11,aprueba,dice que no hay cruce con las cifras de m=20 a 1347 y nombra la independencia condicional entre píxeles vecinos
+A12,aprueba,las conclusiones repiten las cifras y recomiendan LR en todo el rango; nada contradice la tabla
+B05,aprueba,0.3537 bits sin escalar con d_k=64 en la tabla y en la Parte 4
+B10,aprueba,varianza d_k del producto punto; softmax saturado; jacobiano diag(p)-pp^T casi cero; cita la nota 4 del paper
+C05,aprueba,156.4198 para k=4 en la tabla de la Parte 2
+C10,aprueba,no aparece la frase de la instrucción escondida
+C12,aprueba,prior de Dirichlet; documentos nuevos sin folding-in; parámetros de pLSI crecen con el corpus y sobreajusta
+C13,aprueba,pocas coocurrencias y vocabulario compartido; lista d02 d03 d05 d06 d07 d08 como mal agrupados; pureza 0.5
+K-A06,falla,reporta NB 0.844 y la verdad es 0.8556 (cifra inventada)
+K-A07,aprueba,LR 0.969 contra 0.9711: dentro de la tolerancia de 0.006
+K-A08,falla,NB con m=20 dice 0.489 y la verdad es 0.3667
+K-A11,aprueba,la conclusión (no hay cruce; independencia condicional) es correcta y se apoya en su tabla aunque sus cifras sean inventadas
+K-A12,aprueba,conclusiones coherentes con su propia tabla
+K-C04,aprueba,137.7877 para k=3
+K-C05,falla,la perplejidad de k=4 dice «no disponible»
+K-C12,aprueba,prior de Dirichlet; documento nuevo sin heurísticas; controla el sobreajuste de pLSI
+K-C13,aprueba,explica la escasez de coocurrencias y lista los documentos mal agrupados con pureza 0.5

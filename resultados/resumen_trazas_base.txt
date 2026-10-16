@@ -1,0 +1,195 @@
+{
+  "corridas": 3,
+  "corridas_sin_span_corrida": [],
+  "latencia_p50_ms": 461822.0,
+  "latencia_p95_ms": 803888.6,
+  "tokens_entrada": 150280,
+  "tokens_salida": 219741,
+  "costo_usd": 0.154387,
+  "precio": "fila propietario_economico (gpt-4o-mini), verificada el 2026-08-26",
+  "errores": 0,
+  "por_span": {
+    "agent:programador": {
+      "n": 9,
+      "ms_total": 846167.0,
+      "ms_medio": 94018.6,
+      "parte_del_total": 0.265,
+      "errores": 0
+    },
+    "llm:llm.programador": {
+      "n": 10,
+      "ms_total": 846101.0,
+      "ms_medio": 84610.1,
+      "parte_del_total": 0.265,
+      "errores": 0
+    },
+    "agent:revisor": {
+      "n": 9,
+      "ms_total": 320877.0,
+      "ms_medio": 35653.0,
+      "parte_del_total": 0.101,
+      "errores": 0
+    },
+    "llm:llm.revisor": {
+      "n": 10,
+      "ms_total": 320644.0,
+      "ms_medio": 32064.4,
+      "parte_del_total": 0.1,
+      "errores": 0
+    },
+    "agent:redactor": {
+      "n": 5,
+      "ms_total": 282150.0,
+      "ms_medio": 56430.0,
+      "parte_del_total": 0.088,
+      "errores": 0
+    },
+    "llm:llm.redactor": {
+      "n": 5,
+      "ms_total": 282067.0,
+      "ms_medio": 56413.4,
+      "parte_del_total": 0.088,
+      "errores": 0
+    },
+    "llm:llm.indexador": {
+      "n": 18,
+      "ms_total": 99278.0,
+      "ms_medio": 5515.4,
+      "parte_del_total": 0.031,
+      "errores": 0
+    },
+    "agent:planificador": {
+      "n": 3,
+      "ms_total": 47117.0,
+      "ms_medio": 15705.7,
+      "parte_del_total": 0.015,
+      "errores": 0
+    },
+    "llm:llm.planificador": {
+      "n": 3,
+      "ms_total": 47103.0,
+      "ms_medio": 15701.0,
+      "parte_del_total": 0.015,
+      "errores": 0
+    },
+    "agent:indexador": {
+      "n": 3,
+      "ms_total": 35940.0,
+      "ms_medio": 11980.0,
+      "parte_del_total": 0.011,
+      "errores": 0
+    },
+    "herramienta:embeddings_bge_m3": {
+      "n": 14,
+      "ms_total": 11803.0,
+      "ms_medio": 843.1,
+      "parte_del_total": 0.004,
+      "errores": 0
+    },
+    "agent:ejecutor": {
+      "n": 9,
+      "ms_total": 9707.0,
+      "ms_medio": 1078.6,
+      "parte_del_total": 0.003,
+      "errores": 0
+    },
+    "herramienta:sandbox.ejecutar": {
+      "n": 9,
+      "ms_total": 9642.0,
+      "ms_medio": 1071.3,
+      "parte_del_total": 0.003,
+      "errores": 0
+    },
+    "retriever:graphrag.contexto": {
+      "n": 20,
+      "ms_total": 9634.0,
+      "ms_medio": 481.7,
+      "parte_del_total": 0.003,
+      "errores": 0
+    },
+    "agent:investigador": {
+      "n": 13,
+      "ms_total": 9581.0,
+      "ms_medio": 737.0,
+      "parte_del_total": 0.003,
+      "errores": 0
+    },
+    "agent:verificador": {
+      "n": 5,
+      "ms_total": 6345.0,
+      "ms_medio": 1269.0,
+      "parte_del_total": 0.002,
+      "errores": 0
+    },
+    "herramienta:formatos.ejecutar_notebook": {
+      "n": 2,
+      "ms_total": 6148.0,
+      "ms_medio": 3074.0,
+      "parte_del_total": 0.002,
+      "errores": 0
+    },
+    "agent:lector": {
+      "n": 3,
+      "ms_total": 639.0,
+      "ms_medio": 213.0,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "herramienta:leer_pdf": {
+      "n": 3,
+      "ms_total": 625.0,
+      "ms_medio": 208.3,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "herramienta:formatos.markdown_a_pdf": {
+      "n": 2,
+      "ms_total": 46.0,
+      "ms_medio": 23.0,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "herramienta:formatos.construir_notebook": {
+      "n": 2,
+      "ms_total": 44.0,
+      "ms_medio": 22.0,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:sandbox.revision_codigo": {
+      "n": 9,
+      "ms_total": 16.0,
+      "ms_medio": 1.8,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:salida.datos_personales_y_claves": {
+      "n": 5,
+      "ms_total": 11.0,
+      "ms_medio": 2.2,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:entrada.inyeccion": {
+      "n": 3,
+      "ms_total": 7.0,
+      "ms_medio": 2.3,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "agent:validar_plan": {
+      "n": 3,
+      "ms_total": 7.0,
+      "ms_medio": 2.3,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:entrada.datos_personales": {
+      "n": 3,
+      "ms_total": 2.0,
+      "ms_medio": 0.7,
+      "parte_del_total": 0.0,
+      "errores": 0
+    }
+  }
+}

@@ -1,0 +1,16 @@
+Tabla de asignación (id | etiqueta real | tema LDA dominante | probs doc-tema | bien agrupado):
+  d01 | deporte    | tema 1 | [0.0345, 0.932, 0.0335] | True
+  d02 | deporte    | tema 0 | [0.9005, 0.0575, 0.042] | True
+  d03 | deporte    | tema 0 | [0.8985, 0.0536, 0.048] | True
+  d04 | deporte    | tema 1 | [0.0425, 0.9157, 0.0418] | True
+  d05 | cocina     | tema 0 | [0.9294, 0.0337, 0.0368] | False
+  d06 | cocina     | tema 0 | [0.9135, 0.0422, 0.0443] | False
+  d07 | cocina     | tema 2 | [0.039, 0.0374, 0.9236] | True
+  d08 | cocina     | tema 2 | [0.0316, 0.0306, 0.9378] | True
+  d09 | astronomía | tema 2 | [0.0425, 0.042, 0.9155] | False
+  d10 | astronomía | tema 0 | [0.916, 0.0421, 0.042] | False
+  d11 | astronomía | tema 2 | [0.0419, 0.042, 0.9162] | False
+  d12 | astronomía | tema 0 | [0.9149, 0.0421, 0.043] | False
+Pureza: 0.5
+Documentos mal agrupados: ['d05', 'd06', 'd09', 'd10', 'd11', 'd12']
+Tamaño del vocabulario: 71 (coincide con T1: True)

@@ -1,0 +1,20 @@
+[Reutilización] Función de la Parte 1 verificada contra entradas/T1.json (max diff pesos = 0.00e+00, max diff salida = 0.00e+00)
+
+d_model = 16 | posiciones = 0 .. 49
+PE[10, 0] = sin(10 / 10000^(0/16))  = -0.5440211109
+PE[10, 1] = cos(10 / 10000^(0/16))  = -0.8390715291
+PE[25, 6] = sin(25 / 10000^(6/16))  = 0.7107539373
+
+Atención con consulta PE[10] (d_k = 16, sqrt(d_k) = 4.0):
+  pos 10 -> peso = 0.04181334
+  pos  9 -> peso = 0.03676355
+  pos 11 -> peso = 0.03676355
+  pos  4 -> peso = 0.02834375
+  pos 16 -> peso = 0.02834375
+Posición con mayor peso: 10
+Valor del mayor peso:    0.0418133390
+Suma de los pesos (debe ser 1): 1.0000000000
+
+Figura guardada: T3_parte3_mapa_calor_PE.png
+Figura guardada: T3_parte3_pesos_atencion_PE10.png
+Resultados guardados en resultados.json

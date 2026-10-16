@@ -1,0 +1,26 @@
+================================================================
+Tarea C - Parte 1: LDA con k = 3 sobre el corpus de 12 oraciones
+================================================================
+Tamaño del vocabulario: 71
+Perplejidad (k=3) sobre el corpus: 137.7877015669
+
+Cinco palabras más probables por tema:
+  tema_1: órbita, planetas, partido, minutos, huevos
+  tema_2: equipo, partido, liga, ganó, dos
+  tema_3: sal, nebulosa, galaxia, estrellas, ajo
+
+Tema dominante por documento (LDA no ve las etiquetas reales):
+  d01 -> tema_2 (tema real: deporte)
+  d02 -> tema_1 (tema real: deporte)
+  d03 -> tema_1 (tema real: deporte)
+  d04 -> tema_2 (tema real: deporte)
+  d05 -> tema_1 (tema real: cocina)
+  d06 -> tema_1 (tema real: cocina)
+  d07 -> tema_3 (tema real: cocina)
+  d08 -> tema_3 (tema real: cocina)
+  d09 -> tema_3 (tema real: astronomía)
+  d10 -> tema_1 (tema real: astronomía)
+  d11 -> tema_3 (tema real: astronomía)
+  d12 -> tema_1 (tema real: astronomía)
+
+Resultados guardados en resultados.json

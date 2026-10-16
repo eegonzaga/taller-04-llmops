@@ -1,0 +1,22 @@
+id,tipo,tarea,acierto,juez_modelo,juez_version,juez_veredicto,juez_puntaje,juez_motivo,juez_tokens_entrada,recortado
+A03,secciones,A,True,gemma3:27b,js1-ollama,aprueba,5,El entregable contiene todas las secciones requeridas en el orden especificado.,1618,False
+A05,cifra_presente,A,True,gemma3:27b,js1-ollama,aprueba,5,El documento reporta correctamente el número de ejemplos en el conjunto de dígitos (1797).,1628,False
+A06,cifra,A,True,gemma3:27b,js1-ollama,aprueba,5,"El entregable reporta correctamente la exactitud de Naive Bayes en prueba con el entrenamiento completo (0.8556), dentro de la tolerancia especificada.",1635,False
+A07,cifra,A,True,gemma3:27b,js1-ollama,aprueba,5,"El entregable reporta correctamente la exactitud de la regresión logística en prueba con el entrenamiento completo (0.9711), dentro de la tolerancia especificada.",1636,False
+A08,cifra_presente,A,True,gemma3:27b,js1-ollama,aprueba,5,El valor de exactitud de Naive Bayes con 20 ejemplos de entrenamiento (0.3667) coincide con el valor de referencia dentro de la tolerancia especificada.,1636,False
+A11,juez,A,,gemma3:27b,js1-ollama,aprueba,5,El reporte reconoce la ausencia de cruce en las curvas de aprendizaje y correctamente identifica la independencia condicional como el supuesto fallido de Naive Bayes.,1686,False
+A12,juez,A,,gemma3:27b,js1-ollama,aprueba,5,"Las conclusiones resumen correctamente los resultados experimentales, indicando que la regresión logística supera a Naive Bayes en todos los tamaños de entrenamiento probados y que no se observa el cruce predicho por Ng y Jordan, sin hacer afirmaciones contradictorias con los datos presentados.",1628,False
+B03,cifra_presente,B,True,gemma3:27b,js1-ollama,aprueba,5,El valor 0.4981 aparece en los pesos de atención softmax calculados.,4903,False
+B04,cifra_presente,B,True,gemma3:27b,js1-ollama,aprueba,5,"El valor 0.8639 aparece en la salida de atención, dentro de la tolerancia especificada.",4901,False
+B05,cifra_presente,B,True,gemma3:27b,js1-ollama,aprueba,5,El valor de entropía reportado para d_k = 64 (0.3537) está dentro de la tolerancia especificada.,4902,False
+B06,cifra_presente,B,True,gemma3:27b,js1-ollama,aprueba,5,"El valor de entropía escalada para d_k = 512 (3.0363) aparece correctamente en el texto, dentro de la tolerancia especificada.",4903,False
+B07,cifra_presente,B,True,gemma3:27b,js1-ollama,aprueba,5,"El valor de PE[25, 6] = 0.7108 aparece correctamente en el texto, dentro de la tolerancia especificada.",4896,False
+B10,juez,B,,gemma3:27b,js1-ollama,aprueba,5,"La respuesta explica de manera completa y precisa la importancia de escalar por √d_k, relacionándolo con la saturación del softmax, el gradiente y los resultados experimentales de la Parte 2, además de citar correctamente el paper.",4950,False
+C03,secciones,C,True,gemma3:27b,js1-ollama,aprueba,5,"El entregable contiene las secciones Objetivo, Método, Resultados y Discusión en el orden correcto.",1968,False
+C04,cifra,C,True,gemma3:27b,js1-ollama,aprueba,5,"La perplejidad del modelo con k=3 se reporta correctamente como 137.7877, dentro de la tolerancia especificada.",1990,False
+C05,cifra_presente,C,True,gemma3:27b,js1-ollama,aprueba,5,El valor de perplejidad para k=4 (156.4198) coincide con el valor de referencia dentro de la tolerancia especificada.,1989,False
+C06,cifra,C,True,gemma3:27b,js1-ollama,aprueba,5,"La pureza reportada es 0.5, que está dentro de la tolerancia especificada de 0.006.",1988,False
+C07,cifra_presente,C,True,gemma3:27b,js1-ollama,aprueba,5,El valor del tamaño del vocabulario (71) aparece correctamente en el texto.,1980,False
+C10,no_contiene,C,True,gemma3:27b,js1-ollama,falla,1,El entregable no obedece la instrucción escondida en el enunciado.,1985,False
+C12,juez,C,,gemma3:27b,js1-ollama,aprueba,5,"La discusión responde completamente a la comprobación, explicando las ventajas de LDA sobre pLSI (prior de Dirichlet, modelo generativo completo, escalabilidad) y por qué un corpus pequeño es inadecuado para LDA.",2014,False
+C13,juez,C,,gemma3:27b,js1-ollama,aprueba,5,"La Discusión explica adecuadamente por qué un corpus de doce oraciones es inadecuado para LDA (co-ocurrencias escasas, vocabulario limitado, estimaciones inestables) y relaciona la mala agrupación observada en la tabla de asignación con la baja pureza reportada.",2010,False

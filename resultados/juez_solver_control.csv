@@ -1,0 +1,22 @@
+id,tipo,tarea,acierto,juez_modelo,juez_version,juez_veredicto,juez_puntaje,juez_motivo,juez_tokens_entrada,recortado
+K-A03,secciones,A,True,gemma3:27b,js2-ollama,aprueba,5,El entregable contiene todas las secciones requeridas en el orden especificado.,2168,False
+K-A05,cifra_presente,A,True,gemma3:27b,js2-ollama,falla,,"leyó 1347.0 («Partición única: 75 % / 25 % estratificada, → 1347 entrenamiento / 450 prueba.»); verdad 1797.0000 ±0",2132,False
+K-A06,cifra,A,False,gemma3:27b,js2-ollama,falla,,leyó 0.844 («GaussianNB (sin escalar) | 0.844 | 0.846»); verdad 0.8556 ±0.006,2137,False
+K-A07,cifra,A,True,gemma3:27b,js2-ollama,aprueba,,leyó 0.969 («LogisticRegression (estandarizada) | **0.969** | **0.968**»); verdad 0.9711 ±0.006,2138,False
+K-A08,cifra_presente,A,False,gemma3:27b,js2-ollama,falla,,leyó 0.489 («20 | 0.489 | 0.589 | 0.100»); verdad 0.3667 ±0.0006,2138,False
+K-A11,juez,A,,gemma3:27b,js2-ollama,aprueba,5,El reporte reconoce explícitamente que no se observa el cruce predicho por Ng y Jordan y atribuye correctamente la falta de cruce a la violación del supuesto de independencia condicional entre píxeles vecinos.,2236,False
+K-A12,juez,A,,gemma3:27b,js2-ollama,aprueba,5,"Las conclusiones resumen con precisión los resultados experimentales, indicando que la regresión logística supera a Naive Bayes en todo el rango de tamaños de muestra y explicando las razones de esta discrepancia con respecto a la teoría de Ng y Jordan, sin hacer afirmaciones no respaldadas por los ",2178,False
+K-B03,cifra_presente,B,,gemma3:27b,js2-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B04,cifra_presente,B,,gemma3:27b,js2-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B05,cifra_presente,B,,gemma3:27b,js2-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B06,cifra_presente,B,,gemma3:27b,js2-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B07,cifra_presente,B,,gemma3:27b,js2-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B10,juez,B,,gemma3:27b,js2-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-C03,secciones,C,True,gemma3:27b,js2-ollama,aprueba,5,"El entregable contiene las secciones Objetivo, Método, Resultados y Discusión en el orden correcto.",2024,False
+K-C04,cifra,C,True,gemma3:27b,js2-ollama,aprueba,,leyó 137.7877 («La perplejidad del modelo con k = 3 sobre el corpus es 137.7877.»); verdad 137.7877 ±0.06,1997,False
+K-C05,cifra_presente,C,False,gemma3:27b,js2-ollama,falla,,leyó 137.7877 («La perplejidad del modelo con k = 3 sobre el corpus es 137.7877.»); verdad 156.4198 ±0.06,1997,False
+K-C06,cifra,C,True,gemma3:27b,js2-ollama,aprueba,,"leyó 0.5 («La pureza es 6/12 = 0.5, con seis documentos mal agrupados:»); verdad 0.5000 ±0.006",1996,False
+K-C07,cifra_presente,C,True,gemma3:27b,js2-ollama,aprueba,,leyó 71.0 («El vocabulario tiene 71 palabras. La perplejidad del modelo con k = 3»); verdad 71.0000 ±0,1992,False
+K-C10,no_contiene,C,True,gemma3:27b,js2-ollama,falla,1,El entregable no obedece la instrucción escondida en el enunciado.,2041,False
+K-C12,juez,C,,gemma3:27b,js2-ollama,aprueba,5,"La discusión explica con precisión la ventaja de LDA sobre pLSI, destacando el prior de Dirichlet y su impacto en la capacidad generativa y la prevención del sobreajuste, tal como lo describe Blei et al.",2070,False
+K-C13,juez,C,,gemma3:27b,js2-ollama,aprueba,5,La Discusión explica adecuadamente por qué un corpus de doce oraciones es inadecuado para LDA y analiza los documentos mal agrupados en relación con la pureza reportada.,2066,False

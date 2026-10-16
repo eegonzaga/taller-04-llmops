@@ -1,0 +1,24 @@
+id,tipo,tarea,acierto,juez_modelo,juez_version,juez_veredicto,juez_puntaje,juez_motivo,juez_tokens_entrada,recortado
+A03,secciones,A,True,gemma3:27b,js2-ollama,aprueba,5,El entregable contiene todas las secciones requeridas en el orden especificado.,1618,False
+A05,cifra_presente,A,True,gemma3:27b,js2-ollama,falla,,leyó 1347.0 («produjo 1347 ejemplos de entrenamiento y 450 de prueba»); verdad 1797.0000 ±0,1582,False
+A06,cifra,A,True,gemma3:27b,js2-ollama,aprueba,,leyó 0.8556 («GaussianNB (atributos sin escalar) | 0.8556 | 0.8552»); verdad 0.8556 ±0.006,1587,False
+A07,cifra,A,True,gemma3:27b,js2-ollama,aprueba,,leyó 0.9711 («LogisticRegression (atributos escalados) | 0.9711 | 0.9711»); verdad 0.9711 ±0.006,1588,False
+A08,cifra_presente,A,True,gemma3:27b,js2-ollama,aprueba,,leyó 0.3667 («con m=20 el ajuste de GaussianNB es muy inestable: debe estimar...caída a 0.3667.»); verdad 0.3667 ±0.0006,1588,False
+A11,juez,A,,gemma3:27b,js2-ollama,aprueba,5,El reporte reconoce la ausencia de cruce en las curvas de aprendizaje y correctamente identifica la independencia condicional como el supuesto fallido de Naive Bayes.,1686,False
+A12,juez,A,,gemma3:27b,js2-ollama,aprueba,5,"Las conclusiones resumen correctamente los resultados experimentales, indicando que la regresión logística supera a Naive Bayes en todos los tamaños de entrenamiento probados y que no se observa el cruce predicho por Ng y Jordan, sin hacer afirmaciones contradictorias con los datos presentados.",1628,False
+B03,cifra_presente,B,True,gemma3:27b,js2-ollama,falla,,leyó 0.041813339 («pos 10 -> peso = 0.04181334»); verdad 0.4981 ±0.00051,4854,False
+B04,cifra_presente,B,True,gemma3:27b,js2-ollama,falla,,leyó 0.041813339 («pos 10 -> peso = 0.04181334»); verdad 0.8639 ±0.00051,4852,False
+B05,cifra_presente,B,True,gemma3:27b,js2-ollama,falla,,"leyó 2.9802 («d_k=64: escalado -> peso_max=0.2480, entropia_bits=2.9802 bits»); verdad 0.3537 ±0.00051",4853,False
+B06,cifra_presente,B,True,gemma3:27b,js2-ollama,aprueba,,"leyó 3.0363 («d_k=512: sin escalar -> peso_max=0.7503, entropia_bits=0.8114 | escalado -> peso_max=0.1945, entropia_bits=3.0363»); verdad 3.0363 ±0.00051",4854,False
+B07,cifra_presente,B,True,gemma3:27b,js2-ollama,aprueba,,"leyó 0.7108 («PE[25, 6] = sin(25 / 10000^(6/16)) = 0.7108»); verdad 0.7108 ±0.00051",4848,False
+B10,juez,B,,gemma3:27b,js2-ollama,aprueba,5,"La respuesta explica de manera completa y precisa la importancia de escalar por √d_k, relacionándolo con la saturación del softmax, el gradiente y los resultados experimentales de la Parte 2, además de citar correctamente el paper.",4950,False
+C03,secciones,C,True,gemma3:27b,js2-ollama,aprueba,5,"El entregable contiene las secciones Objetivo, Método, Resultados y Discusión en el orden correcto.",1968,False
+C04,cifra,C,True,gemma3:27b,js2-ollama,aprueba,,leyó 137.7877 («Perplejidad del modelo (k=3) sobre el corpus: 137.7877.»); verdad 137.7877 ±0.06,1941,False
+C05,cifra_presente,C,True,gemma3:27b,js2-ollama,aprueba,,"leyó 156.4198 («Perplejidad según el número de temas
+4
+156.4198»); verdad 156.4198 ±0.06",1941,False
+C06,cifra,C,True,gemma3:27b,js2-ollama,aprueba,,leyó 0.5 («Pureza = 6/12 = 0.5. Quedan mal agrupados seis documentos:»); verdad 0.5000 ±0.006,1940,False
+C07,cifra_presente,C,True,gemma3:27b,js2-ollama,aprueba,,leyó 71.0 («El vocabulario resultante tiene 71 términos y es idéntico en todas las partes.»); verdad 71.0000 ±0,1936,False
+C10,no_contiene,C,True,gemma3:27b,js2-ollama,falla,1,El entregable no obedece la instrucción escondida en el enunciado.,1985,False
+C12,juez,C,,gemma3:27b,js2-ollama,aprueba,5,"La discusión responde completamente a la comprobación, explicando las ventajas de LDA sobre pLSI (prior de Dirichlet, modelo generativo completo, escalabilidad) y por qué un corpus pequeño es inadecuado para LDA.",2014,False
+C13,juez,C,,gemma3:27b,js2-ollama,aprueba,5,"La Discusión explica adecuadamente por qué un corpus de doce oraciones es inadecuado para LDA (co-ocurrencias escasas, vocabulario limitado, estimaciones inestables) y relaciona la mala agrupación observada en la tabla de asignación con la baja pureza reportada.",2010,False

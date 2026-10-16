@@ -1,0 +1,24 @@
+{
+  "perplejidad_k2": 107.89088069511578,
+  "perplejidad_k3": 137.78770156685167,
+  "perplejidad_k4": 156.41981736227808,
+  "tabla_perplejidades": [
+    {
+      "n_componentes": 2,
+      "perplejidad": 107.89088069511578
+    },
+    {
+      "n_componentes": 3,
+      "perplejidad": 137.78770156685167
+    },
+    {
+      "n_componentes": 4,
+      "perplejidad": 156.41981736227808
+    }
+  ],
+  "mejor_k": 2,
+  "tamano_vocabulario": 71,
+  "vocabulario_coincide_parte1": true,
+  "perplejidad_k3_parte1": 137.78770156685167,
+  "diferencia_k3_vs_parte1": 0.0
+}

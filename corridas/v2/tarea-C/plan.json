@@ -1,0 +1,111 @@
+{
+  "entrega": {
+    "formato": "pdf",
+    "archivo": "reporte.pdf",
+    "secciones": [
+      "Objetivo",
+      "Método",
+      "Resultados",
+      "Discusión"
+    ],
+    "max_palabras": null,
+    "max_paginas": 2
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "titulo": "Parte 1 — LDA con tres temas",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "depende_de": [],
+      "objetivo": "Construir el corpus con las doce oraciones (d01–d12) y sus etiquetas reales (deporte/cocina/astronomía) tal como aparecen en el enunciado, sin descargar corpus externos. Vectorizar con CountVectorizer usando la lista de palabras vacías dada (el, la, los, las, de, del, en, y, a, un, una, por, para, con, se, su, al, es, después, durante, contra, donde, alrededor) y el resto de parámetros por defecto. Ajustar LatentDirichletAllocation(n_components=3, learning_method='batch', max_iter=50, random_state=0). Medir: tamaño del vocabulario, las cinco palabras más probables de cada tema y la perplejidad del modelo sobre el corpus. Guardar el vectorizador, la matriz documento-término y el modelo ajustado para reutilizarlos en las Partes 2 y 3.",
+      "figura": false,
+      "resultados": [
+        "tamano_vocabulario",
+        "palabras_top_por_tema",
+        "perplejidad_lda3"
+      ]
+    },
+    {
+      "id": "T2",
+      "titulo": "Parte 2 — Número de temas (2, 3 y 4)",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "depende_de": [
+        "T1"
+      ],
+      "objetivo": "Con el mismo CountVectorizer de la Parte 1 y los mismos parámetros de LDA (learning_method='batch', max_iter=50, random_state=0), ajustar LatentDirichletAllocation con n_components=2, 3 y 4 y calcular la perplejidad de cada modelo sobre el corpus. Presentar las tres perplejidades en una sola tabla (k vs perplejidad).",
+      "figura": false,
+      "resultados": [
+        "perplejidad_k2",
+        "perplejidad_k3",
+        "perplejidad_k4"
+      ]
+    },
+    {
+      "id": "T3",
+      "titulo": "Parte 3 — ¿Recupera LDA los temas reales?",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "depende_de": [
+        "T1"
+      ],
+      "objetivo": "Con el modelo de tres temas de la Parte 1, asignar a cada uno de los doce documentos su tema dominante (mayor probabilidad documento-tema). Calcular la pureza: para cada tema de LDA, contar los documentos de la etiqueta real más frecuente entre los asignados a él, sumar esas cuentas y dividir por 12. Producir la tabla de asignación por documento (id, etiqueta real, tema LDA dominante) e identificar qué documentos quedan mal agrupados.",
+      "figura": false,
+      "resultados": [
+        "asignacion_por_documento",
+        "pureza",
+        "documentos_mal_agrupados"
+      ]
+    },
+    {
+      "id": "T4",
+      "titulo": "Parte 4 y reporte final — Pregunta conceptual y armado del PDF",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4",
+        "S5"
+      ],
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "objetivo": "Redactar reporte.pdf de máximo dos páginas con los encabezados exactos y en orden: Objetivo, Método, Resultados, Discusión. En Método describir el corpus (doce oraciones, tres temas, etiqueta real no vista por LDA), el CountVectorizer con la lista de palabras vacías y los parámetros de LDA, e incluir el código. En Resultados incluir el tamaño del vocabulario, las cinco palabras top por tema y la perplejidad de la Parte 1, la tabla k vs perplejidad de la Parte 2 y la tabla de asignación por documento con la pureza de la Parte 3. En Discusión responder la pregunta conceptual de la Parte 4 (qué añade LDA frente a pLSI según Blei, Ng y Jordan 2003: el prior de Dirichlet sobre las mezclas de temas y el modelo generativo completo que permite asignar probabilidad a documentos nuevos, frente a pLSI que carece de él) y explicar por qué un corpus de doce oraciones es un mal escenario para LDA, además de explicar qué documentos quedan mal agrupados y por qué. Toda cifra del reporte debe salir de las ejecuciones de T1–T3.",
+      "figura": false,
+      "resultados": []
+    }
+  ],
+  "estado_final": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "status": "completado",
+      "intentos": 3
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "status": "completado",
+      "intentos": 1
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "status": "completado",
+      "intentos": 1
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "status": "para_redactor",
+      "intentos": 0
+    }
+  ]
+}

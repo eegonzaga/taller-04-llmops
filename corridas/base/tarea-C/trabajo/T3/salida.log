@@ -1,0 +1,40 @@
+==============================================================================
+T3 - Parte 3 - ¿Recupera LDA los temas reales?
+==============================================================================
+Fuente de la distribución documento-tema: entradas/T1.json :: distribucion_documentos_temas (modelo de la Parte 1)
+Aviso: el argmax de la distribución difiere de 'tema_dominante_por_documento'
+de T1.json; se usa el argmax (definición de la Parte 3).
+
+Asignación por documento (tema dominante = mayor componente de theta_d):
+ id etiqueta_real  tema_lda  p_tema_dominante mayoria_del_tema bien_agrupado
+d01       deporte         1            0.9320          deporte            sí
+d02       deporte         0            0.9005       astronomía            NO
+d03       deporte         0            0.8985       astronomía            NO
+d04       deporte         1            0.9157          deporte            sí
+d05        cocina         0            0.9294       astronomía            NO
+d06        cocina         0            0.9135       astronomía            NO
+d07        cocina         2            0.9236       astronomía            NO
+d08        cocina         2            0.9378       astronomía            NO
+d09    astronomía         2            0.9155       astronomía            sí
+d10    astronomía         0            0.9160       astronomía            sí
+d11    astronomía         2            0.9162       astronomía            sí
+d12    astronomía         0            0.9149       astronomía            sí
+
+Composición real de cada tema LDA:
+  Tema LDA 0: cuentas={'astronomía': 2, 'cocina': 2, 'deporte': 2} | mayoría='astronomía' (2/6) | docs: d02, d03, d05, d06, d10, d12
+  Tema LDA 1: cuentas={'deporte': 2} | mayoría='deporte' (2/2) | docs: d01, d04
+  Tema LDA 2: cuentas={'astronomía': 2, 'cocina': 2} | mayoría='astronomía' (2/4) | docs: d07, d08, d09, d11
+
+Pureza = 6/12 = 0.500000 (50.00%)
+
+Documentos mal agrupados (6):
+  - d02 | etiqueta real: deporte | tema LDA: 0 | mayoría del tema: 'astronomía' | p(temas)=[0.9005, 0.0575, 0.0420]
+  - d03 | etiqueta real: deporte | tema LDA: 0 | mayoría del tema: 'astronomía' | p(temas)=[0.8985, 0.0536, 0.0480]
+  - d05 | etiqueta real: cocina | tema LDA: 0 | mayoría del tema: 'astronomía' | p(temas)=[0.9294, 0.0337, 0.0368]
+  - d06 | etiqueta real: cocina | tema LDA: 0 | mayoría del tema: 'astronomía' | p(temas)=[0.9135, 0.0422, 0.0443]
+  - d07 | etiqueta real: cocina | tema LDA: 2 | mayoría del tema: 'astronomía' | p(temas)=[0.0390, 0.0374, 0.9236]
+  - d08 | etiqueta real: cocina | tema LDA: 2 | mayoría del tema: 'astronomía' | p(temas)=[0.0316, 0.0306, 0.9378]
+  Nota: LDA no observa las etiquetas reales y los índices de sus temas son
+  arbitrarios; los fallos provienen del vocabulario compartido entre temas.
+
+Cifras guardadas en resultados.json

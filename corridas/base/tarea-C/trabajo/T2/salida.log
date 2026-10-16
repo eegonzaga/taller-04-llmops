@@ -1,0 +1,18 @@
+Tamaño del vocabulario: 71
+Vocabulario: ['aceite', 'agua', 'ajo', 'amasar', 'azúcar', 'añade', 'año', 'baloncesto', 'campeona', 'cebolla', 'cocina', 'defensa', 'delantero', 'dos', 'dura', 'entrenador', 'equipo', 'espacial', 'estrella', 'estrellas', 'final', 'fotografió', 'fuego', 'fútbol', 'galaxia', 'ganó', 'gas', 'giran', 'goles', 'harina', 'hornea', 'huevos', 'júpiter', 'largo', 'lejana', 'lento', 'levadura', 'liga', 'lleva', 'luna', 'marcó', 'masa', 'minutos', 'nacen', 'nebulosa', 'nube', 'nuevas', 'observó', 'pan', 'partido', 'perdió', 'planetas', 'preparó', 'punto', 'receta', 'sal', 'salsa', 'segundo', 'sofríe', 'sopa', 'telescopio', 'tenista', 'tierra', 'tomate', 'torneo', 'treinta', 'varias', 'verduras', 'zanahoria', 'órbita', 'último']
+Vocabulario idéntico al de la Parte 1: True
+Perplejidad k=3 reportada en Parte 1: 137.78770156685167
+k=2  ->  perplejidad = 107.89088069511578
+k=3  ->  perplejidad = 137.78770156685167
+k=4  ->  perplejidad = 156.41981736227808
+
+Tabla comparativa de perplejidades (corpus de 12 oraciones):
+ n_componentes  perplejidad
+             2   107.890881
+             3   137.787702
+             4   156.419817
+
+Mejor k según perplejidad sobre el corpus: 2
+Diferencia perplejidad(k=3) actual vs Parte 1: 0.0
+
+Resultados guardados en resultados.json

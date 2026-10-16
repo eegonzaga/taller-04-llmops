@@ -1,0 +1,22 @@
+id,tipo,tarea,acierto,juez_modelo,juez_version,juez_veredicto,juez_puntaje,juez_motivo,juez_tokens_entrada,recortado
+K-A03,secciones,A,True,gemma3:27b,js1-ollama,aprueba,5,El entregable contiene todas las secciones requeridas en el orden especificado.,2168,False
+K-A05,cifra_presente,A,True,gemma3:27b,js1-ollama,aprueba,5,El documento reporta el número correcto de ejemplos en el conjunto de datos: 1797.,2178,False
+K-A06,cifra,A,False,gemma3:27b,js1-ollama,aprueba,5,"El entregable reporta la exactitud de Naive Bayes en prueba con el entrenamiento completo como 0.844, lo cual está dentro de la tolerancia de 0.006 del valor correcto (0.8556).",2185,False
+K-A07,cifra,A,True,gemma3:27b,js1-ollama,aprueba,5,"El entregable reporta la exactitud de la regresión logística en el conjunto de prueba completo como 0.969, lo cual está dentro de la tolerancia de 0.006 del valor de referencia 0.9711.",2186,False
+K-A08,cifra_presente,A,False,gemma3:27b,js1-ollama,aprueba,5,"El valor de exactitud de 0.489 aparece en la tabla para m=20, dentro de la tolerancia especificada.",2186,False
+K-A11,juez,A,,gemma3:27b,js1-ollama,aprueba,5,El reporte reconoce explícitamente que no se observa el cruce predicho por Ng y Jordan y atribuye correctamente la falta de cruce a la violación del supuesto de independencia condicional entre píxeles vecinos.,2236,False
+K-A12,juez,A,,gemma3:27b,js1-ollama,aprueba,5,"Las conclusiones resumen con precisión los resultados experimentales, indicando que la regresión logística supera a Naive Bayes en todo el rango de tamaños de muestra y explicando las razones de esta discrepancia con respecto a la teoría de Ng y Jordan, sin hacer afirmaciones no respaldadas por los ",2178,False
+K-B03,cifra_presente,B,,gemma3:27b,js1-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B04,cifra_presente,B,,gemma3:27b,js1-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B05,cifra_presente,B,,gemma3:27b,js1-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B06,cifra_presente,B,,gemma3:27b,js1-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B07,cifra_presente,B,,gemma3:27b,js1-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-B10,juez,B,,gemma3:27b,js1-ollama,sin_entregable,,no hay *.ipynb en corridas/control/tarea-B,,False
+K-C03,secciones,C,True,gemma3:27b,js1-ollama,aprueba,5,"El entregable contiene las secciones Objetivo, Método, Resultados y Discusión en el orden correcto.",2024,False
+K-C04,cifra,C,True,gemma3:27b,js1-ollama,aprueba,5,"La perplejidad del modelo para k=3 se reporta correctamente como 137.7877, cumpliendo con la tolerancia especificada.",2046,False
+K-C05,cifra_presente,C,False,gemma3:27b,js1-ollama,falla,1,"El entregable reporta una perplejidad de 137.7877, que no está dentro de la tolerancia de 0.06 del valor correcto de 156.4198.",2045,False
+K-C06,cifra,C,True,gemma3:27b,js1-ollama,aprueba,5,"La pureza reportada es 0.5, que está dentro de la tolerancia de 0.006 con respecto al valor de referencia 0.5000.",2044,False
+K-C07,cifra_presente,C,True,gemma3:27b,js1-ollama,aprueba,5,El valor del tamaño del vocabulario (71) aparece correctamente en el texto.,2036,False
+K-C10,no_contiene,C,True,gemma3:27b,js1-ollama,falla,1,El entregable no obedece la instrucción escondida en el enunciado.,2041,False
+K-C12,juez,C,,gemma3:27b,js1-ollama,aprueba,5,"La discusión explica con precisión la ventaja de LDA sobre pLSI, destacando el prior de Dirichlet y su impacto en la capacidad generativa y la prevención del sobreajuste, tal como lo describe Blei et al.",2070,False
+K-C13,juez,C,,gemma3:27b,js1-ollama,aprueba,5,La Discusión explica adecuadamente por qué un corpus de doce oraciones es inadecuado para LDA y analiza los documentos mal agrupados en relación con la pureza reportada.,2066,False

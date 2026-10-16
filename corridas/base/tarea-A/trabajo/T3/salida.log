@@ -1,0 +1,18 @@
+================================================================
+T3 - Parte 3: Curva de aprendizaje (GNB vs. Regresión Logística)
+================================================================
+Partición usada: entradas/T1.json (verificada idéntica a la partición canónica)
+tam_train=1347 | tam_test=450 | evaluación fija en prueba
+Submuestras: train_size=m, stratify=y_train, random_state=7
+Tamaños efectivos de submuestra: [20, 50, 100, 200, 400]
+----------------------------------------------------------------
+         m |    acc GNB |     acc LR
+        20 |     0.3667 |     0.7044
+        50 |     0.6022 |     0.8511
+       100 |     0.7556 |     0.8956
+       200 |     0.8333 |     0.9333
+       400 |     0.8400 |     0.9667
+  completo |     0.8556 |     0.9711
+----------------------------------------------------------------
+Figura guardada en: curva_aprendizaje_T3_parte3.png
+Resultados guardados en: resultados.json

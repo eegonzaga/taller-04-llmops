@@ -1,0 +1,54 @@
+=== Caso 1 — tarea C: programador y revisor agotan max_tokens razonando (finish_reason=length, contenido vacío)
+traza_id eea90001bfc37eb438ada1be84afa1ed
+
+spans de Langfuse:
+  llm         llm.programador                      236.3 s ent=3660 sal=30011
+  llm         llm.programador                      176.7 s ent=3660 sal=24000
+  llm         llm.revisor                           97.5 s ent=9570 sal=16000
+  llm         llm.revisor                           94.0 s ent=9570 sal=22227
+
+traza local (traza.jsonl):
+  #27 llm.programador: max_tokens=24000 ent=3660 sal=24000 176.74 s fin=length
+       recibió: «SUBTAREA T3 — Parte 3 — ¿Recupera LDA los temas reales? Objetivo: Con el modelo de tres te…»
+       respondió: «(vacío)…»
+  #28 reintento programador: finish_reason=length con contenido vacío → max_tokens=48000
+  #29 llm.programador: max_tokens=48000 ent=3660 sal=30011 236.29 s fin=stop
+       recibió: «SUBTAREA T3 — Parte 3 — ¿Recupera LDA los temas reales? Objetivo: Con el modelo de tres te…»
+       respondió: «```python # -*- coding: utf-8 -*- """ T3 - Parte 3 - ¿Recupera LDA los temas reales? Con e…»
+  #30 guardrail sandbox.revision_codigo T3: ok
+  #32 llm.revisor: max_tokens=16000 ent=9570 sal=16000 97.5 s fin=length
+       recibió: «SUBTAREA T3 — Parte 3 — ¿Recupera LDA los temas reales? Objetivo: Con el modelo de tres te…»
+       respondió: «(vacío)…»
+  #33 reintento revisor: finish_reason=length con contenido vacío → max_tokens=32000
+  #34 llm.revisor: max_tokens=32000 ent=9570 sal=22227 93.96 s fin=stop
+       recibió: «SUBTAREA T3 — Parte 3 — ¿Recupera LDA los temas reales? Objetivo: Con el modelo de tres te…»
+       respondió: «{"aprobado": true, "problemas": [], "correccion": "No aplica. Verificado: (1) usa la distr…»
+  #35 revisión T3: aprobado=True por=llm
+
+=== Caso 2 — tarea B: la REGLA 5 rechaza el primer borrador del redactor por «§3.2.1»
+traza_id c87457e25fa6864dfd2bfffa7adb4e35
+
+spans de Langfuse:
+  llm         llm.redactor                         126.8 s ent=8092 sal=15716
+  llm         llm.redactor                          42.4 s ent=11269 sal=5504
+
+traza local (traza.jsonl):
+  #34 llm.redactor: max_tokens=32000 ent=8092 sal=15716 126.77 s fin=stop
+       recibió: «ENTREGABLE: formato ipynb, archivo tarea_b_atencion_escalada.ipynb SECCIONES OBLIGATORIAS …»
+       respondió: «# Tarea B — Atención escalada y codificación posicional (Vaswani et al., 2017) ## Tarea B …»
+  #36 verificación ronda 1: ["REGLA 5 — estas cifras no salieron de ninguna ejecución ni están en el enunciado; corrígelas copiando el valor medido o elimínalas: ['3.2']"]
+  #39 verificación ronda 2: sin problemas
+
+=== Caso 3 — tarea C: la REGLA 5 rechaza el primer borrador del redactor por «Hofmann (1999)»
+traza_id eea90001bfc37eb438ada1be84afa1ed
+
+spans de Langfuse:
+  llm         llm.redactor                          55.0 s ent=7940 sal=7779
+  llm         llm.redactor                          18.2 s ent=9834 sal=2373
+
+traza local (traza.jsonl):
+  #37 llm.redactor: max_tokens=32000 ent=7940 sal=7779 55.03 s fin=stop
+       recibió: «ENTREGABLE: formato pdf, archivo reporte.pdf SECCIONES OBLIGATORIAS (en orden): ['Objetivo…»
+       respondió: «# Tarea C — Temas latentes con LDA en un corpus mínimo (Blei, Ng y Jordan, 2003) ## Objeti…»
+  #39 verificación ronda 1: ["REGLA 5 — estas cifras no salieron de ninguna ejecución ni están en el enunciado; corrígelas copiando el valor medido o elimínalas: ['1999']"]
+  #42 verificación ronda 2: sin problemas

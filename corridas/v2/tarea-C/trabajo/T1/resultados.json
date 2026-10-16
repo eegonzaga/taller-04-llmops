@@ -1,0 +1,27 @@
+{
+  "tamano_vocabulario": 71,
+  "palabras_top_por_tema": [
+    [
+      "órbita",
+      "planetas",
+      "partido",
+      "minutos",
+      "huevos"
+    ],
+    [
+      "equipo",
+      "partido",
+      "liga",
+      "ganó",
+      "dos"
+    ],
+    [
+      "sal",
+      "nebulosa",
+      "galaxia",
+      "estrellas",
+      "ajo"
+    ]
+  ],
+  "perplejidad_lda3": 137.78770156685167
+}
