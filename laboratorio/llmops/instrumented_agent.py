@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 
 from guardrails import validate_input, validate_output
 
-LAB03_PATH = Path(__file__).resolve().parents[1] / "Lab-03-Agentes"
+LAB03_PATH = Path(__file__).resolve().parents[1] / "agentes"
 sys.path.append(str(LAB03_PATH))
 
 from agent import AnalystAgent  # noqa: E402

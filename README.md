@@ -95,9 +95,9 @@ python juez_solver.py --corridas corridas/control --resultados resultados/result
 ├── ataques_fuera_del_banco.json  10 casos escritos después de ajustar las reglas
 ├── etiquetas.csv              etiquetas humanas (id,etiqueta), escritas antes de mirar al juez
 ├── evaluar_solver.py, verdades.py, juez_solver.py, buscar_pii_spans.py, tablas_t4.py
-├── laboratorio/               archivos de los Lab-03 y Lab-04 del curso, sin modificar
+├── laboratorio/               archivos de los Lab-03 y Lab-04 del curso; solo cambia la ruta a agentes/
 │   ├── llmops/                del Lab-04: guion.py (Parte 0), exportar, resumir, calibrar, probar guardrails
-│   └── Lab-03-Agentes/        evaluar.py, agent.py y tools.py, que importan los archivos de llmops/
+│   └── agentes/               del Lab-03: evaluar.py, agent.py y tools.py, que importan los archivos de llmops/
 ├── fuentes/modelos/           las filas de precio del anexo del enunciado, con su fecha
 ├── parte0/salidas/            las tres salidas de la Parte 0
 ├── corridas/base, v2, control cada tarea: traza.jsonl, traza_llm/, plan.json, trabajo/ y el entregable

@@ -13,7 +13,7 @@ como se repartió porque las sesiones 16 y 20 lo analizan: corre al lado.
 
 **Dos verificadores, cada uno donde sabe medir.**
 
-- El **determinístico** es el del Taller 3 (`../Lab-03-Agentes/evaluar.py`, importado tal
+- El **determinístico** es el del Taller 3 (`../agentes/evaluar.py`, importado tal
   cual): la verdad de cada respondible es su `sql_verificacion`, el acierto se decide sin
   juicio, y se miden las dos tasas de abstención y si la base sigue intacta.
 - El **juez** (LLM-as-judge) solo es necesario donde no hay consulta que dé la verdad —una
@@ -79,7 +79,7 @@ from fractions import Fraction
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
-LAB03 = AQUI.parent / "Lab-03-Agentes"
+LAB03 = AQUI.parent / "agentes"
 
 
 def _cargar_lab03():
@@ -348,7 +348,7 @@ def evaluar(golden: Path, spec, db: Path, salida: Path, juez: Juez | None,
         casos = [c for c in casos if c["id"] in solo]
     modo = modo_de(casos, modo)
     if modo == "sql" and not db.exists():
-        raise SystemExit(f"No existe {db}. Ejecuta antes: python ../Lab-03-Agentes/crear_base.py")
+        raise SystemExit(f"No existe {db}. Ejecuta antes: python ../agentes/crear_base.py")
     if juez and modo == "general":
         juez.prompt = JUEZ_PROMPT_GENERAL
     criterios = CRITERIO_POR_TIPO if modo == "sql" else CRITERIO_GENERAL
